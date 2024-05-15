@@ -1,0 +1,80 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#282a36",
+          "foreground": "#ff79c6",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "{{ .UserName }} \ue231 ",
+          "trailing_diamond": "",
+          "type": "session"
+        },
+        {
+          "background": "#282a36",
+          "foreground": "#ff79c6",
+          "leading_diamond": "",
+          "properties": {
+            "time_format": "15:04"
+          },
+          "style": "diamond",
+          "template": "{{ .CurrentDate | date .Format }} ",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "time"
+        },
+        {
+          "background": "#50fa7b",
+          "background_templates": ["{{ if gt .Code 0 }}#ff5555{{ end }}"],
+          "foreground": "#ff79c6",
+          "properties": {
+            "always_enabled": true
+          },
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "\ue23a",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "exit"
+        },
+        {
+          "background": "#f1fa8c",
+          "foreground": "#44475a",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "diamond",
+          "template": "{{ .Path }}",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "path"
+        },
+        {
+          "background": "#8be9fd",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffb86c{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#ff5555{{ end }}",
+            "{{ if gt .Ahead 0 }}8be9fd{{ end }}",
+            "{{ if gt .Behind 0 }}#bd93f9{{ end }}"
+          ],
+          "foreground": "#44475a",
+          "leading_diamond": "\ue0b6",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "diamond",
+          "template": " {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}  ",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
