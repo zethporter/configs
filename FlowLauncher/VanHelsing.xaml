@@ -8,7 +8,8 @@
         <ResourceDictionary Source="pack://application:,,,/Themes/Base.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <system:Boolean x:Key="ThemeBlurEnabled">True</system:Boolean>
+<!-- Maybe one day we can re-enable this. But it doesn't have rounded corners. So it leaves little carets on each corner if your search bar has any border radius. -->
+    <!-- <system:Boolean x:Key="ThemeBlurEnabled">True</system:Boolean> -->
 
     <Style
         x:Key="ItemBulletSelectedStyle"
@@ -35,6 +36,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Background" Value="Transparent" />
     </Style>
 
     <!-- Main query box suggesstions style -->
@@ -60,7 +62,7 @@
 
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="#0B0D0F" Opacity="0.5" />
+                <SolidColorBrush Color="#0B0D0F" Opacity="0.8" />
             </Setter.Value>
         </Setter>
 
